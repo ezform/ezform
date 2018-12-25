@@ -82,3 +82,15 @@ function url($u)
 {
     return site_config('site_url') . $u;
 }
+
+function app_version()
+{
+    if (file_exists(BASE_PATH . '/app.json')) {
+        $info = json_decode(file_get_contents(BASE_PATH . '/info.json'));
+        if (isset($info->app_version)) {
+            return $info->app_version;
+        }
+    }
+
+    return null;
+}

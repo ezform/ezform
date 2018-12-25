@@ -11,7 +11,7 @@ if (!defined('BASE_PATH')) {
         <div class="card">
             <div class="card-header"><?= $data['page_title'] ?></div>
             <div class="card-body">
-                <p><?= __('Current Version') ?> : <b><?= APP_VERSION ?></b></p>
+                <p><?= __('Current Version') ?> : <b><?= app_version() ?></b></p>
                 <?php if (isset($data['release'])): ?>
                     <p><?= __('There is new release') ?> : <b><?= $data['release']->tag_name ?></b></p>
                     <a href="<?= url('/admin/update.php?action=install&release=' . $data['release']->tag_name) ?>" class="btn btn-success" id="btn-update" data-loading-text="<?= __('Updating...') ?>"><?= __('Install Update') ?></a>
