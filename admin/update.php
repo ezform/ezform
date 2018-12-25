@@ -22,44 +22,35 @@ function index()
     $data['page_title'] = __('Update');
     $data['active_menu'] = 'update';
 
-
-    $releases = curl_get('https://api.github.com/repos/ezform/ezform/releases');
-    foreach ($releases as $release) {
-        if (!$release->prerelease) {
-            if (version_compare($release->tag_name, app_version()) > 0) {
-                $data['release'] = $release;
-                break;
-            }
+    $latestRelease = curl_get('https://ezform.ir/release.json');
+    if ($latestRelease) {
+        if (isset($latestRelease->version) && version_compare($latestRelease->version, app_version()) > 0) {
+            $data['release'] = $latestRelease;
         }
     }
 
     require(ADMIN_PATH . '/templates/update.php');
-    exit;
 }
 
 function install()
 {
-    if (isset($_GET['release']) && version_compare($_GET['release'], app_version()) > 0) {
-        $opts = [
-            'http' => [
-                'method' => 'GET',
-                'header' => 'User-Agent: EZForm'
-            ]
-        ];
-        $context = stream_context_create($opts);
-        $file = file_get_contents('https://api.github.com/repos/ezform/ezform/zipball/' . $_GET['release'], false, $context);
-        if (!file_exists(BASE_PATH . '/tmp')) {
-            mkdir(BASE_PATH . '/tmp');
-        }
-        file_put_contents(BASE_PATH . '/tmp/update.zip', $file);
-        $zip = new ZipArchive;
-        if ($zip->open(BASE_PATH . '/tmp/update.zip') === true) {
-            $zip->extractTo(BASE_PATH . '/tmp');
-            $zip->close();
-            copy(__DIR__ . '/update-installer.php', BASE_PATH . '/update-installer.php');
-            $_SESSION['maintenance_mode'] = true;
-            header('location: ' . url('/update-installer.php'));
-            exit;
+    $latestRelease = curl_get('https://ezform.ir/release.json');
+    if ($latestRelease) {
+        if (isset($latestRelease->version) && version_compare($latestRelease->version, app_version()) > 0) {
+            $file = file_get_contents($latestRelease->url, false, $context);
+            if (!file_exists(BASE_PATH . '/tmp')) {
+                mkdir(BASE_PATH . '/tmp');
+            }
+            file_put_contents(BASE_PATH . '/tmp/update.zip', $file);
+            $zip = new ZipArchive;
+            if ($zip->open(BASE_PATH . '/tmp/update.zip') === true) {
+                $zip->extractTo(BASE_PATH . '/tmp');
+                $zip->close();
+                copy(__DIR__ . '/update-installer.php', BASE_PATH . '/update-installer.php');
+                $_SESSION['maintenance_mode'] = true;
+                header('location: ' . url('/update-installer.php'));
+                exit;
+            }
         }
     }
 }
@@ -67,10 +58,16 @@ function install()
 function cleanup()
 {
     if (!file_exists(__DIR__ . '/../tmp')) {
-        rmdir(__DIR__ . '/../tmp');
+        rmdir_full(__DIR__ . '/../tmp');
+    }
+    if (!file_exists(__DIR__ . '/../install')) {
+        rmdir_full(__DIR__ . '/../install');
     }
     if (!file_exists(__DIR__ . '/../update-installer.php')) {
         unlink(__DIR__ . '/../update-installer.php');
+    }
+    if (!file_exists(__DIR__ . '/../config-sample.php')) {
+        unlink(__DIR__ . '/../config-sample.php');
     }
     array_push($alerts, [
         'type'    => 'success',

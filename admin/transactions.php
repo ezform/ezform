@@ -24,7 +24,6 @@ function index()
     $data['transactions'] = paginate('transactions', $query, $page, 20);
 
     require(ADMIN_PATH . '/templates/transactions.php');
-    exit;
 }
 
 function details()
@@ -37,7 +36,6 @@ function details()
             $data['transaction'] = $transaction;
 
             require(ADMIN_PATH . '/templates/transaction-details.php');
-            exit;
         }
     }
 }

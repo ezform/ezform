@@ -58,9 +58,6 @@ function pay()
             //]);
         }
     }
-    //if (!$this->form_validation->run()) {
-    //    $this->index();
-    //}
     $formData = $_POST;
     $formInputs = json_decode(json_encode($formInputs), true);
     $inputs = [];
@@ -132,7 +129,10 @@ function install()
 function installation_completed()
 {
     if (file_exists(__DIR__ . '/install')) {
-        rmdir(__DIR__ . '/install');
+        rmdir_full(__DIR__ . '/install');
+    }
+    if (file_exists(__DIR__ . '/config-sample.php')) {
+        unlink(__DIR__ . '/config-sample.php');
     }
     header('location: ' . url('/'));
     exit;

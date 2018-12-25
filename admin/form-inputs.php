@@ -31,7 +31,6 @@ function index()
     $data['form_inputs'] = R::findAll('form_inputs');
 
     require(ADMIN_PATH . '/templates/form-inputs.php');
-    exit;
 }
 
 function add()
