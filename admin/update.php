@@ -66,11 +66,11 @@ function install()
 
 function cleanup()
 {
-    if (!file_exists(BASE_PATH . '/tmp')) {
-        rmdir(BASE_PATH . '/tmp');
+    if (!file_exists(__DIR__ . '/../tmp')) {
+        rmdir(__DIR__ . '/../tmp');
     }
-    if (!file_exists(BASE_PATH . '/update-installer.php')) {
-        unlink(BASE_PATH . '/update-installer.php');
+    if (!file_exists(__DIR__ . '/../update-installer.php')) {
+        unlink(__DIR__ . '/../update-installer.php');
     }
     array_push($alerts, [
         'type'    => 'success',

@@ -3,7 +3,7 @@
 
 <head>
     <title>EZForm Installer</title>
-    <link rel="stylesheet" type="text/css" href="/includes/css/styles.css">
+    <link rel="stylesheet" type="text/css" href="../includes/css/styles.css">
 </head>
 
 <body>
@@ -15,7 +15,7 @@
         </div>
         <hr>
         <br>
-        <form method="post" action="/install/index.php">
+        <form method="post">
             <div class="row">
                 <div class="col">
                     <div class="form-group">
