@@ -4,7 +4,7 @@ if (!defined('BASE_PATH')) {
     exit;
 }
 ?>
-<?php require('header.php'); ?>
+<?php include('header.php'); ?>
     <div class="center-wrapper">
         <div class="container">
             <div class="row">
@@ -16,4 +16,4 @@ if (!defined('BASE_PATH')) {
             </div>
         </div>
     </div>
-<?php require('footer.php'); ?>
+<?php include('footer.php'); ?>

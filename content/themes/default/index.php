@@ -4,7 +4,7 @@ if (!defined('BASE_PATH')) {
     exit;
 }
 ?>
-<?php require('header.php'); ?>
+<?php include('header.php'); ?>
     <div class="center-wrapper">
         <div class="container">
             <div class="row">
@@ -53,7 +53,7 @@ if (!defined('BASE_PATH')) {
                                         </div>
                                     </div>
                                 <?php } ?>
-                                <?php require(__DIR__ . './alerts.php') ?>
+                                <?php include(__DIR__ . './alerts.php') ?>
                             </div>
                             <div class="footer">
                                 <button class="button purple"><?= __('Pay') ?></button>
@@ -64,4 +64,4 @@ if (!defined('BASE_PATH')) {
             </div>
         </div>
     </div>
-<?php require('footer.php'); ?>
+<?php include('footer.php'); ?>

@@ -13,11 +13,11 @@ define('LANGUAGES_PATH', __DIR__ . '/content/languages');
 define('THEMES_PATH', __DIR__ . '/content/themes');
 define('ADMIN_PATH', __DIR__ . '/admin');
 
-require(INCLUDE_PATH . "/rb.php");
+include(INCLUDE_PATH . "/rb.php");
 R::setup(DB_DSN, DB_USERNAME, DB_PASSWORD);
 
-require(INCLUDE_PATH . "/jdf.php");
-require(INCLUDE_PATH . "/functions.php");
+include(INCLUDE_PATH . "/jdf.php");
+include(INCLUDE_PATH . "/functions.php");
 
 function handleException($e)
 {

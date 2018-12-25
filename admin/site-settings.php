@@ -1,7 +1,7 @@
 <?php
 
-require(__DIR__ . '/../config.php');
-require(INCLUDE_PATH . '/auth.php');
+include(__DIR__ . '/../config.php');
+include(INCLUDE_PATH . '/auth.php');
 
 $action = isset($_GET['action']) ? $_GET['action'] : null;
 
@@ -21,7 +21,7 @@ function index()
 
     $data['configs'] = R::findAll('configs');
 
-    require(ADMIN_PATH . '/templates/site-settings.php');
+    include(ADMIN_PATH . '/templates/site-settings.php');
 }
 
 function edit()

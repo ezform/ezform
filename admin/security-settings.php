@@ -1,7 +1,7 @@
 <?php
 
-require(__DIR__ . '/../config.php');
-require(INCLUDE_PATH . '/auth.php');
+include(__DIR__ . '/../config.php');
+include(INCLUDE_PATH . '/auth.php');
 
 $action = isset($_GET['action']) ? $_GET['action'] : null;
 
@@ -19,7 +19,7 @@ function index()
     $data['page_title'] = __('Security Settings');
     $data['active_menu'] = 'security-settings';
 
-    require(ADMIN_PATH . '/templates/security-settings.php');
+    include(ADMIN_PATH . '/templates/security-settings.php');
 }
 
 function change_password()

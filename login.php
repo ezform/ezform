@@ -1,4 +1,4 @@
-<?php require('config.php'); ?>
+<?php include('config.php'); ?>
 <?php
 if (isset($_SESSION['user_id'])) {
     header('location: ' . url('/admin'));

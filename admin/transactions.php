@@ -1,7 +1,7 @@
 <?php
 
-require(__DIR__ . '/../config.php');
-require(INCLUDE_PATH . '/auth.php');
+include(__DIR__ . '/../config.php');
+include(INCLUDE_PATH . '/auth.php');
 
 $action = isset($_GET['action']) ? $_GET['action'] : null;
 
@@ -23,7 +23,7 @@ function index()
     $page = isset($_GET['page']) ? $_GET['page'] : 1;
     $data['transactions'] = paginate('transactions', $query, $page, 20);
 
-    require(ADMIN_PATH . '/templates/transactions.php');
+    include(ADMIN_PATH . '/templates/transactions.php');
 }
 
 function details()
@@ -35,7 +35,7 @@ function details()
             $data['page_title'] = __('Transaction Details');
             $data['transaction'] = $transaction;
 
-            require(ADMIN_PATH . '/templates/transaction-details.php');
+            include(ADMIN_PATH . '/templates/transaction-details.php');
         }
     }
 }
