@@ -1,6 +1,6 @@
 <?php
 
-include(__DIR__ . '/config.php');
+require(__DIR__ . '/config.php');
 include(INCLUDE_PATH . '/auth.php');
 
 $dirs = scandir(__DIR__ . '/tmp');
