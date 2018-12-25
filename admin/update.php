@@ -57,17 +57,17 @@ function install()
 
 function cleanup()
 {
-    if (!file_exists(__DIR__ . '/../tmp')) {
-        rmdir_full(__DIR__ . '/../tmp');
+    if (file_exists(BASE_PATH . '/tmp')) {
+        rmdir_full(BASE_PATH . '/tmp');
     }
-    if (!file_exists(__DIR__ . '/../install')) {
-        rmdir_full(__DIR__ . '/../install');
+    if (file_exists(BASE_PATH . '/install')) {
+        rmdir_full(BASE_PATH . '/install');
     }
-    if (!file_exists(__DIR__ . '/../update-installer.php')) {
-        unlink(__DIR__ . '/../update-installer.php');
+    if (file_exists(BASE_PATH . '/config-sample.php')) {
+        unlink(BASE_PATH . '/config-sample.php');
     }
-    if (!file_exists(__DIR__ . '/../config-sample.php')) {
-        unlink(__DIR__ . '/../config-sample.php');
+    if (file_exists(BASE_PATH . '/update-installer.php')) {
+        unlink(BASE_PATH . '/update-installer.php');
     }
     array_push($alerts, [
         'type'    => 'success',
