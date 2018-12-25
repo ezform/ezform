@@ -131,6 +131,7 @@ function install()
 function installation_completed()
 {
     if (file_exists(__DIR__ . '/install')) {
+        rmdir(__DIR__ . '/install');
     }
     header('location: ' . url('/'));
     exit;
