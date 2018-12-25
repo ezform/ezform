@@ -125,7 +125,8 @@ function callback()
 
 function install()
 {
-    require('./install/index.php');
+    header('location: ./install');
+    exit;
 }
 
 function installation_completed()
