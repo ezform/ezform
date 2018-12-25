@@ -13,8 +13,8 @@ if (!defined('BASE_PATH')) {
             <div class="card-body">
                 <p><?= __('Current Version') ?> : <b><?= APP_VERSION ?></b></p>
                 <?php if (isset($data['release'])): ?>
-                    <p><?= __('There is new release') ?> : <b><?= $release->tag_name ?></b></p>
-                    <a href="<?= url('/admin/update.php?action=install&release=' . $release->tag_name) ?>" class="btn btn-success" id="btn-update" data-loading-text="<?= __('Updating...') ?>"><?= __('Install Update') ?></a>
+                    <p><?= __('There is new release') ?> : <b><?= $data['release']->tag_name ?></b></p>
+                    <a href="<?= url('/admin/update.php?action=install&release=' . $data['release']->tag_name) ?>" class="btn btn-success" id="btn-update" data-loading-text="<?= __('Updating...') ?>"><?= __('Install Update') ?></a>
                     <script>
                         $('#btn-update').on('click', function () {
                             $(this).text($(this).data('loading-text'));
