@@ -85,10 +85,10 @@ function url($u)
 
 function app_version()
 {
-    if (file_exists(BASE_PATH . '/app.json')) {
+    if (file_exists(BASE_PATH . '/info.json')) {
         $info = json_decode(file_get_contents(BASE_PATH . '/info.json'));
-        if (isset($info->app_version)) {
-            return $info->app_version;
+        if (isset($info->version)) {
+            return $info->version;
         }
     }
 
