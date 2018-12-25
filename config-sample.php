@@ -2,7 +2,6 @@
 
 session_start();
 
-define('APP_VERSION', '{APP_VERSION}');
 define('SITE_URL', '{SITE_URL}');
 define('DB_DSN', 'mysql:host={DB_HOST};dbname={DB_NAME}');
 define('DB_NAME', '{DB_NAME}');
@@ -20,9 +19,9 @@ R::setup(DB_DSN, DB_USERNAME, DB_PASSWORD);
 require(INCLUDE_PATH . "/jdf.php");
 require(INCLUDE_PATH . "/functions.php");
 
-//function handleException($e)
-//{
-//    echo $e->getMessage();
-//}
-//
-//set_exception_handler('handleException');
+function handleException($e)
+{
+    echo $e->getMessage();
+}
+
+set_exception_handler('handleException');
