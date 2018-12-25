@@ -51,7 +51,7 @@ function curl_get($url)
         CURLOPT_RETURNTRANSFER => 1,
         CURLOPT_URL            => $url,
         CURLOPT_SSL_VERIFYPEER => false,
-        CURLOPT_TIMEOUT        => 60,
+        CURLOPT_TIMEOUT        => 30,
         CURLOPT_HTTPHEADER     => [
             'User-Agent: EZForm',
         ]
