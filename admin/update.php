@@ -56,7 +56,7 @@ function install()
         if ($zip->open(BASE_PATH . '/tmp/update.zip') === true) {
             $zip->extractTo(BASE_PATH . '/tmp');
             $zip->close();
-            copy(__DIR__ . 'update-installer.php', BASE_PATH);
+            copy(__DIR__ . '/update-installer.php', BASE_PATH . '/update-installer.php');
             $_SESSION['maintenance_mode'] = true;
             header('location: ' . url('/update-installer.php'));
             exit;
