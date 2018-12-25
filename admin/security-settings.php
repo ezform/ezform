@@ -20,7 +20,6 @@ function index()
     $data['active_menu'] = 'security-settings';
 
     require(ADMIN_PATH . '/templates/security-settings.php');
-    exit;
 }
 
 function change_password()

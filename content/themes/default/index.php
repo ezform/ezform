@@ -10,7 +10,7 @@ if (!defined('BASE_PATH')) {
             <div class="row">
                 <div class="col-md-6 offset-md-3">
                     <div class="box">
-                        <form method="post" action="/?action=pay">
+                        <form method="post" action="<?= url('/?action=pay') ?>">
                             <div class="title">
                                 <h1><?= site_config('site_title') ?></h1>
                                 <p><?= site_config('site_description') ?></p>

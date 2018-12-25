@@ -22,7 +22,6 @@ function index()
     $data['configs'] = R::findAll('configs');
 
     require(ADMIN_PATH . '/templates/site-settings.php');
-    exit;
 }
 
 function edit()

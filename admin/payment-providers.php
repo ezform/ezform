@@ -22,7 +22,6 @@ function index()
     $data['payir'] = R::findOne('payment_providers', '`name` = ?', ['payir']);
 
     require(ADMIN_PATH . '/templates/payment-providers.php');
-    exit;
 }
 
 function payir()
