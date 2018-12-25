@@ -1,7 +1,7 @@
 <?php
 
-require(__DIR__ . '/../config.php');
-require(INCLUDE_PATH . '/auth.php');
+include(__DIR__ . '/../config.php');
+include(INCLUDE_PATH . '/auth.php');
 
 $action = isset($_GET['action']) ? $_GET['action'] : null;
 
@@ -29,7 +29,7 @@ function index()
         }
     }
 
-    require(ADMIN_PATH . '/templates/update.php');
+    include(ADMIN_PATH . '/templates/update.php');
 }
 
 function install()

@@ -1,7 +1,7 @@
 <?php
 
-require(__DIR__ . '/../config.php');
-require(INCLUDE_PATH . '/auth.php');
+include(__DIR__ . '/../config.php');
+include(INCLUDE_PATH . '/auth.php');
 
 $action = isset($_GET['action']) ? $_GET['action'] : null;
 
@@ -21,7 +21,7 @@ function index()
 
     $data['payir'] = R::findOne('payment_providers', '`name` = ?', ['payir']);
 
-    require(ADMIN_PATH . '/templates/payment-providers.php');
+    include(ADMIN_PATH . '/templates/payment-providers.php');
 }
 
 function payir()

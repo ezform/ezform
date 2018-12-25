@@ -5,7 +5,7 @@ if (!file_exists('config.php')) {
     exit;
 }
 
-require('config.php');
+include('config.php');
 
 $action = isset($_GET['action']) ? $_GET['action'] : null;
 
@@ -34,12 +34,12 @@ function index()
     $data = [];
     $data['page_title'] = site_config('site_title');
     $data['form_inputs'] = R::findAll('form_inputs');
-    require(THEMES_PATH . '/' . site_config('site_theme') . '/index.php');
+    include(THEMES_PATH . '/' . site_config('site_theme') . '/index.php');
 }
 
 function pay()
 {
-    require(INCLUDE_PATH . '/payments/payir.php');
+    include(INCLUDE_PATH . '/payments/payir.php');
 
     if (!site_config('payment_amount')) {
         //$this->form_validation->set_rules('amount', 'amount', 'required|numeric', [
@@ -90,7 +90,7 @@ function pay()
 
 function callback()
 {
-    require(INCLUDE_PATH . '/payments/payir.php');
+    include(INCLUDE_PATH . '/payments/payir.php');
 
     $data = null;
     if (isset($_GET['payment_provider'])) {
@@ -106,7 +106,7 @@ function callback()
                     R::store($transaction);
                     $data['page_title'] = __('Payment Receipt');
                     $data['transaction'] = $transaction;
-                    require(THEMES_PATH . '/' . site_config('site_theme') . '/receipt.php');
+                    include(THEMES_PATH . '/' . site_config('site_theme') . '/receipt.php');
                     exit;
                 }
                 break;

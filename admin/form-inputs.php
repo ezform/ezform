@@ -1,7 +1,7 @@
 <?php
 
-require(__DIR__ . '/../config.php');
-require(INCLUDE_PATH . '/auth.php');
+include(__DIR__ . '/../config.php');
+include(INCLUDE_PATH . '/auth.php');
 
 $action = isset($_GET['action']) ? $_GET['action'] : null;
 
@@ -30,7 +30,7 @@ function index()
 
     $data['form_inputs'] = R::findAll('form_inputs');
 
-    require(ADMIN_PATH . '/templates/form-inputs.php');
+    include(ADMIN_PATH . '/templates/form-inputs.php');
 }
 
 function add()
@@ -70,7 +70,7 @@ function show_edit()
             $data['active_menu'] = 'form-inputs';
             $data['form_input'] = $formInput;
 
-            require(ADMIN_PATH . '/templates/form-inputs-edit.php');
+            include(ADMIN_PATH . '/templates/form-inputs-edit.php');
         }
     }
 }

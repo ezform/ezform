@@ -10,8 +10,8 @@ if (!defined('BASE_PATH')) {
     exit;
 }
 ?>
-<?php require(ADMIN_PATH . '/templates/admin-header.php') ?>
-<?php require(ADMIN_PATH . '/templates/admin-sidebar.php') ?>
+<?php include(ADMIN_PATH . '/templates/admin-header.php') ?>
+<?php include(ADMIN_PATH . '/templates/admin-sidebar.php') ?>
     <div class="col-md-9">
         <div class="card">
             <div class="card-header"><?= $data['page_title'] ?></div>
@@ -60,4 +60,4 @@ if (!defined('BASE_PATH')) {
             </div>
         </div>
     </div>
-<?php require(ADMIN_PATH . '/templates/admin-footer.php') ?>
+<?php include(ADMIN_PATH . '/templates/admin-footer.php') ?>

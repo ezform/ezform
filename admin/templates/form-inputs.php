@@ -4,10 +4,10 @@ if (!defined('BASE_PATH')) {
     exit;
 }
 ?>
-<?php require(ADMIN_PATH . '/templates/admin-header.php') ?>
-<?php require(ADMIN_PATH . '/templates/admin-sidebar.php') ?>
+<?php include(ADMIN_PATH . '/templates/admin-header.php') ?>
+<?php include(ADMIN_PATH . '/templates/admin-sidebar.php') ?>
     <div class="col-md-9">
-        <?php require(__DIR__ . './alerts.php') ?>
+        <?php include(__DIR__ . './alerts.php') ?>
         <div class="card">
             <div class="card-header"><?= __('Add Field') ?></div>
             <div class="card-body">
@@ -54,4 +54,4 @@ if (!defined('BASE_PATH')) {
             </div>
         </div>
     </div>
-<?php require(ADMIN_PATH . '/templates/admin-footer.php') ?>
+<?php include(ADMIN_PATH . '/templates/admin-footer.php') ?>
