@@ -157,7 +157,7 @@
                                 if (mysqli_multi_query($conn, $sql)) {
                                     $conn->close();
                                     $config = file_get_contents('../config-sample.php');
-                                    $config = str_replace('{APP_VERSION}', '1.0.0', $config);
+                                    $config = str_replace('{APP_VERSION}', '0.0.1', $config);
                                     $config = str_replace('{SITE_URL}', $_POST['site_url'], $config);
                                     $config = str_replace('{DB_HOST}', $_POST['db_host'], $config);
                                     $config = str_replace('{DB_NAME}', $_POST['db_name'], $config);
